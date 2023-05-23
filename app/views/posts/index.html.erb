@@ -1,20 +1,30 @@
-<h1>Posts</h1>
+<div class="container">
+  <h1>Posts</h1><br>
 
-<h3>Total number of posts: <%= @posts.count %></h3>
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      <%= post.body %>
-      <% if user_signed_in? %>
-        <p>Posted by: <%= User.find(post.user_id).email %></p>
+  <h3>Total number of posts: <%= @posts.count %></h3>
+  <ol class="list-group list-group-numbered">
+    <% @posts.each do |post| %>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold"><%= post.title %></div>
+          <%= post.body %>
+        </div>
+          <% if user_signed_in? %>
+            <span class="badge bg-primary rounded-pill">Posted by: <%= User.find(post.user_id).name %></span>
+            <%# button_to "Delete", post_path(post), data: {turbo_confirm: 'Are you sure?'}, method: :delete %>
+          <% end %>
+      </li>
+    <% end %>
+  </ol><br>
+  <div>
+    <% if user_signed_in? %>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <%= button_to "New post", new_post_path, method: :get %><br>
+      <%= button_to "Edit user", edit_user_registration_path, method: :get %>
+      <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= button_to "Log in", new_user_session_path, method: :get %><br>
       <% end %>
-    </li>
-  <% end %>
-</ul>
-<div>
-  <%= button_to "Log in", new_user_session_path, method: :get %><br>
-  <%= button_to "Log out", destroy_user_session_path, method: :delete %>
-  <% if user_signed_in? %>
-    <%= button_to "Edit user", edit_user_registration_path, method: :get %>
-  <% end %>
+    </div>
+  </div>
 </div>

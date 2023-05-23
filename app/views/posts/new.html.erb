@@ -1,10 +1,12 @@
 <%= form_with model: @post do |form| %>
-  <div>
-    <%= form.text_field :title, placeholder: 'Title'%>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Title</label><br>
+    <%= form.text_field :title, placeholder: 'Title goes here'%>
   </div>
 
-  <div>
-    <%= form.text_field :body, placeholder: 'Your message here'%>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Comment</label><br>
+    <%= form.text_area :body, placeholder: 'Comment goes here' %>
   </div>
 
   <div>
