@@ -1,15 +1,18 @@
+<br>
 <%= form_with model: @post do |form| %>
-  <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Title</label><br>
-    <%= form.text_field :title, placeholder: 'Title goes here'%>
-  </div>
+  <div class="container">
+    <div>
+      <label for="exampleFormControlInput1" class="form-label">Title</label><br>
+      <%= form.text_field :title, placeholder: 'Title goes here'%>
+    </div><br>
 
-  <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Comment</label><br>
-    <%= form.text_area :body, placeholder: 'Comment goes here' %>
-  </div>
+    <div>
+      <label for="exampleFormControlInput1" class="form-label">Comment</label><br>
+      <%= form.text_area :body, placeholder: 'Comment goes here' %>
+    </div><br>
 
-  <div>
-    <%= form.submit %>
+    <div>
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>
