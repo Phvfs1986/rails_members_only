@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <br>
+  <%= form_with model: @comment do |form| %>
+    <div>
+      <%= form.hidden_field :post_id, value: @post_id %>
+      <h3><label for="exampleFormControlInput1" class="form-label">Comment</label></h3>
+      <%= form.text_area :body, placeholder: 'Comment goes here' %>
+    </div><br>
+    <div>
+      <%= button_tag "Submit", class: "btn btn-primary btn-lg rounded-pill" %>
+    </div>
+  <% end %>
+</div>
